@@ -55,7 +55,7 @@
       <Project>{5E9A29B9-918E-458C-8A8E-9616D62E8A4C}</Project>
       <Name>Reminders.Models.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Reminders.Data.Repository.Interfaces\Reminders.Data.Repository.Interfaces.csproj">
+    <ProjectReference Include="..\Reminders.Data.Repository.Interfaces\Reminders.Data.Repository.Interfaces.csproj">
       <Project>{26265EDE-B7CC-40DA-94F0-A9ACFAB45011}</Project>
       <Name>Reminders.Data.Repository.Interfaces</Name>
     </ProjectReference>

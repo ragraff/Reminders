@@ -21,7 +21,7 @@ using Serilog.Sinks.RollingFileAlternate;
 
 namespace Reminders.UI.Mvc
 {
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 

@@ -341,6 +341,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\Reminders.Data.Repository.Interfaces\Reminders.Data.Repository.Interfaces.csproj">
+      <Project>{26265EDE-B7CC-40DA-94F0-A9ACFAB45011}</Project>
+      <Name>Reminders.Data.Repository.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\Reminders.Data.Repository\Reminders.Data.Repository.SqlServer.csproj">
       <Project>{653ec533-acf8-4d2f-9c6d-151ce29b68da}</Project>
       <Name>Reminders.Data.Repository.SqlServer</Name>
@@ -348,10 +352,6 @@
     <ProjectReference Include="..\..\Models\Reminders.Models.Domain\Reminders.Models.Domain.csproj">
       <Project>{5e9a29b9-918e-458c-8a8e-9616d62e8a4c}</Project>
       <Name>Reminders.Models.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Reminders.Data.Repository.Interfaces\Reminders.Data.Repository.Interfaces.csproj">
-      <Project>{26265EDE-B7CC-40DA-94F0-A9ACFAB45011}</Project>
-      <Name>Reminders.Data.Repository.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
