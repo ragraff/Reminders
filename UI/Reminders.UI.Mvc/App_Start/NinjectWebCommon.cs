@@ -82,7 +82,7 @@ namespace Reminders.UI.Mvc
         private static void RepositoryModule(IBindingRoot kernel)
         {
             const string connectionString = "YOUR CONNECTION STRING HERE";    
-            throw new NotImplementedException("Don't forget to put in your connection string.);
+            throw new NotImplementedException("Don't forget to put in your connection string.");
             kernel
                 .Bind<IDbConnection>()
                 .To<SqlConnection>()
