@@ -1,0 +1,15 @@
+﻿@model Reminders.Models.Domain.Reminder
+
+@using (Html.BeginForm("Create", "Reminder", FormMethod.Post, new {id = "form-reminder-create"}))
+{
+    var viewDataDictionary = new ViewDataDictionary
+    {
+        {"ButtonText", "Create"},
+        {"ReminderButtonId", "update-reminder-button"},
+        {"TextAreaId", "create-textarea"},
+        {"IdId", "create-id"},
+        {"ReminderDatepickerId", "create-datepicker"},
+        {"ReminderPriorityId", "create-priority"}
+    };
+    @Html.Partial("_CreateEdit", viewDataDictionary)
+}

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Reminders";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.Action("_GetAll", "Reminder")
+
+<button id="reminder-add-button" type="button" class="btn col-sm-1">Add</button>
+
+@Html.Partial("_Modal", new ViewDataDictionary { { "modalid", "reminder-add-modal" }, { "viewname", "_Create" }, { "modalheader", "Add Reminder" } })
+@Html.Partial("_Modal", new ViewDataDictionary { { "modalid", "reminder-update-modal" }, { "viewname", "_Update" }, { "modalheader", "Update Reminder" } })

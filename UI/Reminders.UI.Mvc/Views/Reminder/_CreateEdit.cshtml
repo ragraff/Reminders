@@ -1,0 +1,21 @@
+﻿@using Reminders.Models.Domain
+@model Reminders.Models.Domain.Reminder
+
+<div class="form-group">
+    @Html.HiddenFor(model => model.Id, new {id = ViewData["IdId"].ToString()})
+    @Html.LabelFor(model => model.Text, "Text:")
+    @Html.TextAreaFor(model => model.Text, new {id = ViewData["TextAreaId"].ToString(), @class = "form-control col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12", rows = "4"})
+    <div class="dropdown">
+        @Html.DropDownListFor(model => model.Priority, Enum.GetValues(typeof(Priority))
+            .Cast<Priority>()
+            .Select(priority => new SelectListItem {Text = priority.ToString(), Value = ((int) priority).ToString()}), new {id = ViewData["ReminderPriorityId"].ToString()})
+    </div>
+    <div id="datepicker">
+        <input name="DueDate" id="@ViewData["ReminderDatepickerId"].ToString()"/>
+    </div>
+</div>
+<div class="row">
+    <div id="@ViewData["ReminderButtonId"].ToString()" class="col-sm-1">
+        <input class="btn" type="submit" value="@ViewData["ButtonText"].ToString()"/>
+    </div>
+</div>

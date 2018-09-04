@@ -1,0 +1,56 @@
+﻿@using Newtonsoft.Json
+@using Reminders.Models.Domain
+@model IEnumerable<Reminders.Models.Domain.Reminder>
+
+@functions {
+
+    private string GetBandColor(Priority priority)
+    {
+        switch (priority)
+        {
+            case Priority.Critical:
+                return "bg-danger";
+            case Priority.High:
+                return "bg-warning";
+            case Priority.Medium:
+                return "bg-info";
+            default:
+                return "bg-secondary";
+        }
+    }
+
+}
+
+<div id="reminder-display" class="row">
+    @foreach (var reminder in Model.OrderByDescending(item => item.Priority))
+    {
+        <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <nav id="reminder-nav" class="navbar navbar-light @GetBandColor(reminder.Priority) justify-content-end text-right">
+                <div class="navbar-brand">@reminder.Priority</div>
+                <button id="reminder-navbar-toggle" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-actions-@reminder.Id" aria-expanded="False" aria-label="Toggle Actions">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="my-actions-@reminder.Id">
+                    <ul id="reminder-navbar-list" class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" id="reminder-update-button" href="#" onclick="HandleUpdate(@JsonConvert.SerializeObject(reminder))">Update</a>
+                        </li>
+                        <li class="nav-item active">@Html.ActionLink("Delete", "Delete", new {id = reminder.Id}, new {@class = "nav-link"})</li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="card-body text-center">
+                <div>
+                    @Html.DisplayFor(model => reminder.Text)
+                </div>
+                <div>
+                    @if (reminder.DueDate.HasValue)
+                    {
+                        @Html.LabelFor(model => reminder.DueDate, "Due By:")
+                    }
+                    @Html.DisplayFor(model => reminder.DueDate)
+                </div>
+            </div>
+        </div>
+    }
+</div>
