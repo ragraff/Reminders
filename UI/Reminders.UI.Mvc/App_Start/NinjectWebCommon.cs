@@ -81,7 +81,8 @@ namespace Reminders.UI.Mvc
 
         private static void RepositoryModule(IBindingRoot kernel)
         {
-            const string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Reminders;Persist Security Info=True;User ID=sa;Password=Password12345!;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True";
+            const string connectionString = "YOUR CONNECTION STRING HERE";    
+            throw new NotImplementedException("Don't forget to put in your connection string.);
             kernel
                 .Bind<IDbConnection>()
                 .To<SqlConnection>()
